@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script type="text/javascript" src="p5.js"></script>
+	<title></title>
+</head>
+<body>
+<button onclick="finishTile()">Complete Pattern!</button>
+<script type="text/javascript">
+	var q1, q2, q3, q4, qfirst
+	function setup(){
+		createCanvas(401, 401);
+		line(0, 200, 400, 200)
+		line(200, 0, 200, 400)
+	}
+	function draw(){
+	}
+	function mouseDragged(){
+		ellipse(mouseX, mouseY, 2, 2)
+		//quadrants numbered clockwise starting at top left corner
+		q1 = get(0, 0, 100, 100)
+		q2 = get(100, 0, 100, 100)
+		q3 = get(100, 100, 100, 100)
+		q4 = get(0, 100, 100, 100)
+		qfirst = get(201, 0, 200, 200)
+
+		image(q1, 300, 300) //3rd quad
+		image(q1, 300, 100) //2nd quad
+		image(q1, 100, 300) //4th quad
+
+		image(q2, 200, 300) //3rd
+		image(q2, 200, 100) //2nd
+		image(q2, 0, 300) //4th
+
+		image(q3, 200, 200) //3rd
+		image(q3, 200, 0) //2nd
+		image(q3, 0, 200)	//4th	
+
+		image(q4, 300, 200) //3rd
+		image(q4, 300, 0) //2nd
+		image(q4, 100, 200) //4th
+	}
+	function finishTile(){
+		console.log('clicked')
+		//clear first quad
+		noStroke()
+		rect(0, 0, 200, 200)
+		//replace first with 2nd, 3rd, or 4th quad
+		image(qfirst, 0, 0)
+
+	}
+
+</script>
+
+</body>
+</html>
